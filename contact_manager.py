@@ -1,9 +1,17 @@
-print("hello")
-print("hi")
+Class User:
 
-print("hello world")
-print ("project")
+ """
+    Represents a user in the contact management system.
 
+    Attributes:
+    - user_id (int): The unique identifier for the user.
+    - username (str): The username of the user.
+    - email (str): The email address of the user.
+    - phone_number (str): The phone number of the user.
+    - contacts (list): A list of Contact objects associated with the user.
+    """
+
+Class Contact:
 """A class for individual contacts
 
   Attributes: 
