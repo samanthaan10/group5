@@ -12,7 +12,13 @@ print ("project")
         email (str): The email address for the contact
 """
 
+def database(): 
+  """Represents a database with all of the contacts
 
+  Attributes: 
+    id (tuple): The name, number, and email of one contact 
+    contact (dictionary): a dictionary of all the ids 
+  """
 
 def main ():
   """Takes the username and password of person logging in and displays address book if username and password are correct
