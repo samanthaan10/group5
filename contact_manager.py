@@ -19,6 +19,11 @@ Class Contact:
         phone_number (str): The phone number for the contact
         email (str): The email address for the contact
 """
+def __init__(self, name, phone_number, email):
+       self.name = name
+       self.phone_numner = phone_numner
+       self.email = email
+       
 
 def database(): 
   """Represents a database with all of the contacts
