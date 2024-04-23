@@ -10,6 +10,12 @@ Class User:
     - phone_number (str): The phone number of the user.
     - contacts (list): A list of Contact objects associated with the user.
     """
+def __init__(self, user_id, username, email, phone_number, contacts):
+       self.user_id
+       self.username
+       self.email
+       self.phone_number
+       self.contacts
 
 Class Contact:
 """A class for individual contacts
