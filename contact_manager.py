@@ -17,6 +17,14 @@ def __init__(self, user_id, username, email, phone_number, contacts):
        self.phone_number = phone_number
        self.contacts =  contacts
 def add_contact(self, name, phone_number, email):
+    """ Adds a contact from the user's list 
+
+    Attributes: 
+    name (str): the name of the contact that will be delted
+    phone_number (int): the phone number of the contact that will be delted
+    email (str): the email of the contact that will be delted
+
+    """
        new_contact = Contact(name, phone_number, email)
        self.contacts.append(new_contact)
 
