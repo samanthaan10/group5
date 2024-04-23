@@ -16,7 +16,7 @@ def __init__(self, user_id, username, email, phone_number, contacts):
        self.email
        self.phone_number
        self.contacts
-
+def add_contact(
 Class Contact:
 """A class for individual contacts
 
