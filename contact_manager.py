@@ -127,7 +127,7 @@ def main ():
             name = input("Enter contact name to delete: ")
             user.delete_contact(name)
         elif choice == "3":
-            query = input("Enter search query: ")
+            query = input("Enter search keyword: ")
             user.search_contacts(query)
         elif choice == "4":
             user.display_contacts()
