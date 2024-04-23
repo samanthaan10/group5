@@ -40,6 +40,21 @@ def delete_contact(self, name):
             self.contacts.remove(contact) #deleting the contact 
             break #ending if statement 
 
+def search_contact(self, query):
+    """Search for contacts whose names contain the specified query.
+
+        Attributes:
+            query (str): The search query.
+      
+   """
+   found_contacts = [contact for contact in self.contacts if query.lower() in contact.get_name().lower()]
+        if found_contacts:
+            print("Found contacts:")
+            for contact in found_contacts:
+                print(contact)
+        else:
+            print("No contacts found matching the query.")
+
 Class Contact:
 """A class for individual contacts
 
@@ -53,14 +68,6 @@ def __init__(self, name, phone_number, email):
        self.phone_numner = phone_numner
        self.email = email
        
-
-def database(): 
-  """Represents a database with all of the contacts
-
-  Attributes: 
-    id (tuple): The name, number, and email of one contact 
-    contact (dictionary): a dictionary of all the ids 
-  """
 def get_name(self):
  """grabs the name of the contact
 
