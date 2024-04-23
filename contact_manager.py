@@ -53,7 +53,14 @@ def database():
     id (tuple): The name, number, and email of one contact 
     contact (dictionary): a dictionary of all the ids 
   """
+def get_name(self):
+ """grabs the name of the contact
 
+  Returns:
+   str: the name of the contact
+  """
+  return.self.name
+ 
 def set_email(self, email): 
   """set the email address of the contact 
   Arguments: 
