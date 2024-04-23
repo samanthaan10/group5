@@ -16,7 +16,9 @@ def __init__(self, user_id, username, email, phone_number, contacts):
        self.email = email
        self.phone_number = phone_number
        self.contacts =  contacts
-def add_contact():
+def add_contact(self, name, phone_number, email):
+       new_contact = Contact(name, phone_number, email)
+       self.contacts.append(new_contact)
 
 Class Contact:
 """A class for individual contacts
