@@ -11,12 +11,13 @@ Class User:
     - contacts (list): A list of Contact objects associated with the user.
     """
 def __init__(self, user_id, username, email, phone_number, contacts):
-       self.user_id
-       self.username
-       self.email
-       self.phone_number
-       self.contacts
-def add_contact(
+       self.user_id = user_id
+       self.username = username
+       self.email = email
+       self.phone_number = phone_number
+       self.contacts =  contacts
+def add_contact():
+
 Class Contact:
 """A class for individual contacts
 
