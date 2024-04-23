@@ -106,17 +106,35 @@ def get_email(self):
   return self.email #returning the email address
 
 def main ():
-  """Takes the username and password of person logging in and displays address book if username and password are correct
-  Parameters:
-    username (str)
-      username of the person logging in
-    password (str)
-      password that matches with the username 
+    user = User()
+    while True:
+        print("\n1. Add Contact")
+        print("2. Delete Contact")
+        print("3. Search Contacts")
+        print("4. Display Contacts")
+        print("5. Exit")
 
-  Returns:
-      - if username and password are correct return:
-            address_book
-              completely organized/managed address book of the user
-      - else return:
-        None
-  """
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            name = input("Enter contact name: ")
+            phone_number = input("Enter contact phone number: ")
+            email = input("Enter contact email: ")
+            contact = Contact(name, phone_number, email)
+            user.add_contact(contact)
+        elif choice == "2":
+            name = input("Enter contact name to delete: ")
+            user.delete_contact(name)
+        elif choice == "3":
+            query = input("Enter search query: ")
+            user.search_contacts(query)
+        elif choice == "4":
+            user.display_contacts()
+        elif choice == "5":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
