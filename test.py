@@ -1,5 +1,12 @@
 #Unit Tests for Contact Manager
 
+import unittest
+
+class TestContactManager(unittest.TestCase):
+    def setUp(self):
+        self.contact_manager = ContactManager()
+
+    
     def test_add_contact(self):
         contact_name = "Rob"
         contact_phone = "4430300210"
@@ -29,3 +36,26 @@
     def test_invalid_email(self):
         with self.assertRaises(ValueError):
             Contact("Lauren", "2579837837", "invalid_email")
+
+    def test_search_contacts_found(self):
+        self.user = User("Sarah")
+        self.user.add_contact("Carl", "7814676223", "carl@gmail.com")
+        self.user.add_contact("James", "6172463758", "james@icloud.com")
+
+        query = "Michael"
+        found_contacts = self.user.search_contacts(query)
+        self.assertEqual(len(found_contacts), 1)
+        self.assertEqual(found_contacts[0].name, "Michael")
+
+    def test_search_contacts_not_found(self):
+        self.user = User("Liam")
+        self.user.add_contact("Kendra", "7814676223", "kendra@gmail.com")
+        self.user.add_contact("Moran", "6172463758", "moran@icloud.com")
+
+        query = "Alice"
+        found_contacts = self.user.search_contacts(query)
+        self.assertEqual(len(found_contacts), 0)
+
+
+if __name__ == '__main__':
+    unittest.main()
