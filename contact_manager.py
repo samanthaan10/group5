@@ -10,12 +10,13 @@ Class User:
      - phone_number (str): The phone number of the user.
      - contacts (list): A list of Contact objects associated with the user.
      """
- def __init__(self, user_id, username, email, phone_number, contacts):
+ def __init__(self, user_id, username, email, phone_number, contacts = None):
         self.user_id = user_id
         self.username = username
         self.email = email
         self.phone_number = phone_number
-        self.contacts =  contacts
+        self.contacts =  contacts if contacts is not None else []
+
  def add_contact(self, name, phone_number, email):
      """ Adds a contact from the user's list 
  
@@ -65,7 +66,7 @@ Class Contact:
  """
  def __init__(self, name, phone_number, email):
         self.name = name
-        self.phone_numner = phone_numner
+        self.phone_number = phone_number
         self.email = email
         
  def get_name(self):
@@ -74,7 +75,7 @@ Class Contact:
    Returns:
     str: the name of the contact
    """
-   return.self.name # returning the name of the contact
+   return self.name # returning the name of the contact
  
   def get_number(self):
    """grabs the number of the contact
