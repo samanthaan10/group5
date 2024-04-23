@@ -40,7 +40,7 @@ def delete_contact(self, name):
             self.contacts.remove(contact) #deleting the contact 
             break #ending if statement 
 
-def search_contact(self, query):
+def search_contacts(self, query):
     """Search for contacts whose names contain the specified query.
 
         Attributes:
