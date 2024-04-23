@@ -20,6 +20,18 @@ def add_contact(self, name, phone_number, email):
        new_contact = Contact(name, phone_number, email)
        self.contacts.append(new_contact)
 
+def delete_contact(self, name): 
+    """ Deletes a contact from the user's list 
+
+    Attributes: 
+    name (str): the name of the contact that will be delted
+
+    """
+    for contact in self.contacts: 
+        if contact.name == name: 
+            self.contacts.remove(contact) #deleting the contact 
+            break #ending if statement 
+
 Class Contact:
 """A class for individual contacts
 
@@ -41,6 +53,27 @@ def database():
     id (tuple): The name, number, and email of one contact 
     contact (dictionary): a dictionary of all the ids 
   """
+
+def set_email(self, email): 
+  """set the email address of the contact 
+  Arguments: 
+     email(str): the email address that will be set 
+        
+  Returns: 
+     ValueError: if the email address isnt valie 
+  """
+    
+  if "@" not in email or "." not in email: #checking if @ is in email
+      raise ValueError("Invalid email address") #if it isnt it is not a valid email address
+  self.email = email
+
+def get_email(self):
+  """ grabs the email address of the contact 
+    
+  Returns: 
+      str: the email address
+  """
+  return self.email #returning the email address
 
 def main ():
   """Takes the username and password of person logging in and displays address book if username and password are correct
