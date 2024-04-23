@@ -67,7 +67,7 @@ def get_name(self):
  Returns:
   str: the phone number of the contact
  """
- return self.phone_number
+ return self.phone_number # returning the phone number
  
 def set_email(self, email): 
   """set the email address of the contact 
