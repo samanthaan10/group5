@@ -1,17 +1,23 @@
 #Unit Tests for Contact Manager
 
 import unittest
+from io import StringIO
+from unittest.mock import patch
+from contact_manager import User, Contact
 
-class TestUserAddContact(unittest.TestCase):
+
+class TestUser(unittest.TestCase):
+    
     def setUp(self):
-        self.user = User()
-
+        self.user = User(1, "Ren", "ren@example.com", "4504437890")
+        self.user.add_contact("Willow", "6783455412", "willow@example.com")
+        self.user.add_contact("Bob", "7843336405", "bob@gmail.com")
     
     def test_add_contact(self):
         contact_name = "Rob"
         contact_phone = "4430300210"
         contact_email = "rob@gmail.com"
-        self.contact_manager.add_contact(contact_name, contact_phone, contact_email)
+        self.user.add_contact(contact_name, contact_phone, contact_email)
 
         self.assertEqual(len(self.contact_manager.contacts), 1)
         added_contact = self.contact_manager.contacts[0]
@@ -19,20 +25,15 @@ class TestUserAddContact(unittest.TestCase):
         self.assertEqual(added_contact.phone_number, contact_phone)
         self.assertEqual(added_contact.email, contact_email)
 
- class TestUserDeleteContact(unittest.TestCase):
-
     def test_delete_contact_existing(self): 
-        self.user = User("Jen")
-        self.user.add_contact("John", "7814676223", "john@gmail.com")
-        self.user.add_contact("James", "6172463758", "james@icloud.com")
+        self.user.delete_contact("Willow")
+        self.assertEqual(len(self.user.contacts), 1)
         
     def test_delete_contact_nonexistent(self): 
         self.user.delete_contact("Grace")
         self.assertEqual(len(self.user.contacts), 2)
 
-class TestUserSearchContacts(unittest.TestCase):
-
-     def test_search_contacts_found(self):
+    def test_search_contacts_found(self):
         self.user = User("Sarah")
         self.user.add_contact("Carl", "7814676223", "carl@gmail.com")
         self.user.add_contact("James", "6172463758", "james@icloud.com")
@@ -50,6 +51,15 @@ class TestUserSearchContacts(unittest.TestCase):
         query = "Alice"
         found_contacts = self.user.search_contacts(query)
         self.assertEqual(len(found_contacts), 0)
+
+
+    def test_display_contacts(self):
+        with patch('sys.stdout', new_callable=StringIO) as fake_out:
+            self.user.display_contacts()
+
+            expected_output = "Contacts:\nName: Willow, Phone: 6783455412, Email: willow@example.com\n" \
+                              "Name: Bob, Phone: 7843336405, Email: bob@gmail.com\n"
+            self.assertEqual(fake_out.getvalue(), expected_output)
         
 class TestContact(unittest.TestCase):
     
@@ -62,10 +72,12 @@ class TestContact(unittest.TestCase):
             Contact("Lauren", "2579837837", "invalid_email")
 
     def test_get_name(self):
-        self.assertEqual(self.contact.get_name(), "John Smith")
+        contact = Contact("John Smith", "1234567890", "john@yahoo.com")
+        self.assertEqual(contact.get_name(), "John Smith")
 
     def test_get_number(self):
-        self.assertEqual(self.contact.get_number(), "1234567890")
+        contact = Contact("John Smith", "2404435612", "john@yahoo.com")
+        self.assertEqual(contact.get_number(), "2404435612")
 
 
 
