@@ -54,7 +54,17 @@ Class User:
              for contact in found_contacts:
                  print(contact)
          else:
-             print("No contacts found matching the query.")
+             print("No contacts found.")
+             
+  def display_contacts(self):
+        """Display all contacts of the user."""
+        if self.contacts:
+            print("Contacts:")
+            for contact in self.contacts:
+                print(f"Name: {contact.name}, Phone: {contact.phone_number}, Email: {contact.email}")
+        else:
+            print("No contacts found.")
+
 
 Class Contact:
  """A class for individual contacts
