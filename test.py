@@ -2,9 +2,9 @@
 
 import unittest
 
-class TestContactManager(unittest.TestCase):
+class TestUserAddContact(unittest.TestCase):
     def setUp(self):
-        self.contact_manager = ContactManager()
+        self.user = User()
 
     
     def test_add_contact(self):
@@ -19,6 +19,7 @@ class TestContactManager(unittest.TestCase):
         self.assertEqual(added_contact.phone_number, contact_phone)
         self.assertEqual(added_contact.email, contact_email)
 
+ class TestUserDeleteContact(unittest.TestCase):
 
     def test_delete_contact_existing(self): 
         self.user = User("Jen")
@@ -28,16 +29,10 @@ class TestContactManager(unittest.TestCase):
     def test_delete_contact_nonexistent(self): 
         self.user.delete_contact("Grace")
         self.assertEqual(len(self.user.contacts), 2)
-        
-    def test_valid_email(self):
-        contact = Contact("Maddy", "7817389234", "maddy@gmail.com")
-        self.assertEqual(contact.get_email(), "maddy@gmail.com")
 
-    def test_invalid_email(self):
-        with self.assertRaises(ValueError):
-            Contact("Lauren", "2579837837", "invalid_email")
+class TestUserSearchContacts(unittest.TestCase):
 
-    def test_search_contacts_found(self):
+     def test_search_contacts_found(self):
         self.user = User("Sarah")
         self.user.add_contact("Carl", "7814676223", "carl@gmail.com")
         self.user.add_contact("James", "6172463758", "james@icloud.com")
@@ -55,6 +50,23 @@ class TestContactManager(unittest.TestCase):
         query = "Alice"
         found_contacts = self.user.search_contacts(query)
         self.assertEqual(len(found_contacts), 0)
+        
+class TestContact(unittest.TestCase):
+    
+    def test_valid_email(self):
+        contact = Contact("Maddy", "7817389234", "maddy@gmail.com")
+        self.assertEqual(contact.get_email(), "maddy@gmail.com")
+
+    def test_invalid_email(self):
+        with self.assertRaises(ValueError):
+            Contact("Lauren", "2579837837", "invalid_email")
+
+    def test_get_name(self):
+        self.assertEqual(self.contact.get_name(), "John Smith")
+
+    def test_get_number(self):
+        self.assertEqual(self.contact.get_number(), "1234567890")
+
 
 
 if __name__ == '__main__':
