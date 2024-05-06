@@ -1,7 +1,7 @@
 # Contact Management System
 
 ## Overview
-The Contact Management System is a command-line application designed to facilitate the management of contacts. It allows users to add, delete, search, and display contacts effectively. The program ensures that user inputs are validated to maintain data integrity.
+Connectify is a command-line application designed to facilitate contact management. It allows users to add, delete, search, and display contacts effectively. The program ensures that user inputs are validated to maintain data integrity.
 
 ## Features
 - **Add Contact**: Users can add a new contact by providing the contact's name, phone number, and email address.
