@@ -27,7 +27,7 @@ To run the Contact Management System:
 - Test cases have been included to validate user inputs and ensure proper functionality.
 
 ## Feedback
-We welcome any feedback or suggestions for improving the Contact Management System. Please feel free to open an issue or submit a pull request with your contributions.
+We welcome any feedback or suggestions for improving Connectify. Please feel free to open an issue or submit a pull request with your contributions.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
