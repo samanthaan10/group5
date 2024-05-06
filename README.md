@@ -1,4 +1,4 @@
-# Contact Management System
+# Connectify
 
 ## Overview
 Connectify is a command-line application designed to facilitate contact management. It allows users to add, delete, search, and display contacts effectively. The program ensures that user inputs are validated to maintain data integrity.
